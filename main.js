@@ -13,6 +13,24 @@ function updateTotalPrice() {
     const quantity = parseInt(quantityInput.value);         //Get entered quantity and product prices
     const totalPrice = productPrice * quantity;
 
-    totalPriceElement.textContent = totalPrice.toFixed(2);
+    totalPriceElement.textContent = totalPrice.toFixed(2);      
 }
 
+//Task 4: Handle order submission and display order summary
+
+productSelector.addEventListener('change',updateTotalPrice);
+quantityInput.addEventListener('input', updateTotalPrice);          //Event listeners to trigger updates and/or changes
+
+placeOrderButton.addEventListener('click', function() {
+    const selectedProductText = productSelector.options[productSelector.selectedIndex].text;
+    const quantity = parseInt(quantityInput.value);
+    const totalPrice = totalPriceElement.textContent;           //Get selected product, entered quantity, calculated total price
+    
+    if (isNaN(quantity) || quantity <= 0) {
+        orderSummary.textContent = "Please enter a valid quantity.";        //I added an error message
+        return;
+}
+
+    orderSummary.textContent = 'You Ordered ${quantity} of ${selectedProductText}. Total Price: $${totalPrice}';
+
+});
