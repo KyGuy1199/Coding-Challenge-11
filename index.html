@@ -1,0 +1,31 @@
+//Task 1: Setup HTML Structure for Order Form Create an HTML page that includes the following elements
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Order Management</title>
+    </head>
+<body>
+    <h2>Place Your Order</h2>
+
+    <label for="product-selector">Select a Product:</label>
+    <select id="product-selector">
+        <option value="11.11">Product A - $11.11</option>
+        <option value="21.07">Product B - $21.07</option>
+        <option value="31.93">Product C - $31.93</option>
+    </select>
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" value="1" min="1" required>
+
+    <p>Total Price: $<span id="total-price">11.11</span></p>
+
+    <button id="place-order">Place Order</button>
+
+    <p id="order-summary"></p>
+
+    <script src="main.js"></script>
+</body>
+</html>
